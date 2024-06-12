@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-# require_relative 'test_helper'
-# require_relative '../lib/user'
+require_relative 'test_helper'
+require_relative '../lib/user'
 
-# class UserTest < Minitest::Test
-#   def test_user
-#     user = User.new name: 'Dima', birthday: '01-2-1890'
+class UserTest < Minitest::Test
+  def test_user
+    user = User.new name: 'Dima', birthday: '01-2-1890'
 
 #     assert_equal 'Dima', user.name
 #     refute user.active
 #     assert_equal DateTime.parse('01-2-1890'), user.birthday
 #     assert_instance_of(DateTime, user.birthday)
 
-#     assert_equal ({ name: 'Dima', birthday: DateTime.parse('01-2-1890'), active: false }), user.attributes
-#   end
+    assert_equal ({ name: 'Dima', birthday: DateTime.parse('01-2-1890'), active: false }), user.attributes
+  end
 
 #   def test_extra_attributes
 #     user1 = User.new name: 'Test', birthday: nil
@@ -58,4 +58,4 @@
 #     assert_equal 'Andrey', user.name
 #     assert_equal ({ name: 'Andrey', birthday: nil, active: false }), user.attributes
 #   end
-# end
+end
