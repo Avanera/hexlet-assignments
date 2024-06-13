@@ -8,9 +8,11 @@ class Signature
   end
 
   def call(env)
-    status, headers, body = @app.call(env)
-    body << Digest::SHA256.hexdigest(body.first)
+    status, headers, prev_body = @app.call(env)
 
-    [status, headers, body]
+    hash = Digest::SHA256.hexdigest(prev_body.join)
+    next_body = prev_body.push('<br>', hash)
+
+    [status, headers, next_body]
   end
 end

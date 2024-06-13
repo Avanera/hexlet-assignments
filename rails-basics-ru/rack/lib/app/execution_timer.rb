@@ -2,6 +2,8 @@
 
 require 'digest'
 
+# Adds a log message to the body without changing the cryptographic hash of the response body,
+# because Signature middleware adds a hash before ExecutionTimer middleware adds a log message
 class ExecutionTimer
   def initialize(app)
     @app = app
@@ -9,16 +11,11 @@ class ExecutionTimer
 
   def call(env)
     start_time = Time.now
-    status, headers, body = @app.call(env)
-    display_time_spent(start_time)
+    status, headers, prev_body = @app.call(env)
+    time_spent = (Time.now - start_time) * 1_000_000
+    log_message = "App took #{time_spent.to_i} microseconds."
+    next_body = prev_body.push('</br>', log_message)
 
-    [status, headers, body]
-  end
-
-  private
-
-  def display_time_spent(start_time)
-    time_spent = (Time.now - start_time) * 1e+6
-    $stdout.write("The time taken to execute the site in microseconds: #{time_spent.to_i}")
+    [status, headers, next_body]
   end
 end
