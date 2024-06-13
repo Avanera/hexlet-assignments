@@ -9,6 +9,7 @@ gem 'logger'
 gem 'rack-heartbeat'
 
 gem 'minitest-power_assert'
+gem 'pry'
 gem 'rack-minitest'
 gem 'rack-unreloader'
 gem 'thin'
