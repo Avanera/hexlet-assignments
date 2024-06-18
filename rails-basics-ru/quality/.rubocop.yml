@@ -1,4 +1,4 @@
-# require: rubocop-rails
+require: rubocop-rails
 
 AllCops:
   NewCops: enable
@@ -8,6 +8,17 @@ AllCops:
     - 'db/migrate/**'
     - 'examples/**'
 
-# BEGIN
+Style/Documentation:
+  Enabled: false
 
-# END
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Lint/EmptyFile:
+  Enabled: false

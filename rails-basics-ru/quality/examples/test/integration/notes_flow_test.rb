@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class NotesFlowTest < ActionDispatch::IntegrationTest
   # Rails автоматически используют транзакционные тесты
@@ -10,7 +10,7 @@ class NotesFlowTest < ActionDispatch::IntegrationTest
   end
 
   test 'opens one note page' do
-    note = Note.create(title: "Title 1", description: "Description 1")
+    note = Note.create(title: 'Title 1', description: 'Description 1')
 
     # debugger
 

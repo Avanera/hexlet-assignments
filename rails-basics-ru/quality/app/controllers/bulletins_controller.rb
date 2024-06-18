@@ -2,6 +2,6 @@
 
 class BulletinsController < ApplicationController
   # BEGIN
-  
+
   # END
 end
