@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class BulletinsController < ApplicationController
-  # BEGIN
+  def index
+    @bulletins = Bulletin.order(created_at: :desc)
+  end
 
-  # END
+  def show
+    @bulletin = Bulletin.find(params[:id])
+  end
 end

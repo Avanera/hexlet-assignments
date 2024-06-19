@@ -1,0 +1,8 @@
+one:
+  id: 1
+  title: 'Title one'
+  body: 'This bulletin is about Title one'
+two:
+  id: 2
+  title: 'Title two'
+  body: 'This bulletin is about Title two'
