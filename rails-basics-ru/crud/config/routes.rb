@@ -2,6 +2,6 @@
 
 Rails.application.routes.draw do
   root 'tasks#index'
-  resources :tasks, only: %i[show new create edit update destroy]
+  resources :tasks
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

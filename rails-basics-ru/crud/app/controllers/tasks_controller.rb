@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      flash[:notice] = 'Task created'
+      flash[:notice] = 'Task was successfully created.'
       redirect_to task_path(@task)
     else
       render :new
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      flash[:notice] = 'Task updated'
+      flash[:notice] = 'Task was successfully updated.'
       redirect_to task_path(@task)
     else
       render :edit
@@ -38,10 +38,10 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     if @task.destroy
-      flash[:notice] = 'Task deleted'
-      redirect_to root_path
+      flash[:notice] = 'Task was successfully deleted.'
+      redirect_to tasks_path
     else
-      flash[:failure] = 'Could not delete'
+      flash[:failure] = 'Could not delete the task.'
       redirect_to task_path(@task)
     end
   end
