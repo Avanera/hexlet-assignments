@@ -10,6 +10,6 @@
     status: %w[new old].sample,
     creator: Faker::Name.name,
     performer: Faker::Name.name,
-    completed: [true, false].sample
+    completed: Faker::Boolean.boolean
   )
 end
