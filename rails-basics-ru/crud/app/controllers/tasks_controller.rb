@@ -17,7 +17,7 @@ class TasksController < ApplicationController
       flash[:notice] = 'Task was successfully created.'
       redirect_to task_path(@task)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -31,7 +31,7 @@ class TasksController < ApplicationController
       flash[:notice] = 'Task was successfully updated.'
       redirect_to task_path(@task)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
