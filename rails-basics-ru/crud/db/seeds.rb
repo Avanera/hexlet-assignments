@@ -5,9 +5,9 @@
 #
 10.times do
   Task.create(
-    name: Faker::Lorem.sentence(word_count: rand(2..10)).chomp('.'),
-    description: Faker::Lorem.words(number: rand(2..10)).join(' '),
-    status: %w[new old].sample,
+    name: Faker::Artist.name,
+    description: Faker::Movies::HarryPotter.quote,
+    status: Faker::Movies::HarryPotter.spell,
     creator: Faker::Name.name,
     performer: Faker::Name.name,
     completed: Faker::Boolean.boolean
