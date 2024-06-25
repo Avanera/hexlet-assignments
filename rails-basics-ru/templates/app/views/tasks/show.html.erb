@@ -1,0 +1,39 @@
+<h1>Task <%= @task.id %></h1>
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @task.creator %>
+</p>
+
+<p>
+  <strong>Performer:</strong>
+  <%= @task.performer %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @task.completed %>
+</p>
+
+<%= link_to 'All tasks list', root_path %>
+<%= link_to 'Edit', edit_task_path %>
+<%= link_to 'Delete',
+      task_path(@task),
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
