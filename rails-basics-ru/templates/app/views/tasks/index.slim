@@ -1,0 +1,5 @@
+h1 Tasks
+= link_to t('.create_new_task'), new_task_path
+- @tasks.each do |task|
+  p = link_to task.name, task_path(task)
+  br

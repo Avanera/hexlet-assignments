@@ -1,0 +1,30 @@
+h1 Task = @task.id
+p
+  strong Name:
+  = @task.name
+
+p
+  strong Description:
+  = @task.description
+
+p
+  strong Status:
+  = @task.status
+
+p
+  strong Creator:
+  = @task.creator
+
+p
+  strong Performer:
+  = @task.performer
+
+p
+  strong Completed:
+  = @task.completed
+
+ul
+  li = link_to 'Edit', edit_task_path
+  li = link_to 'Delete', \
+    task_path(@task), \
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }

@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.update
+    if @task.update(task_params)
       redirect_to @task, notice: 'Task has been successfully updated'
     else
       render :edit, status: :unprocessable_entity
