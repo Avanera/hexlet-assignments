@@ -1,9 +1,17 @@
 = content_for :title do
   = @user.name
-
-/ BEGIN
-
-/ END
+ol
+  - @user.tasks.each do |task|
+    li
+      ul
+        li
+          | Task:
+          = task.name
+        li
+          | Status:
+          = task.status.name
+        li
+          = link_to 'Edit task', edit_task_path(task)
 hr
 
 .d-flex

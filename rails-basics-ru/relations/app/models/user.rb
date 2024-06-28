@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # BEGIN
-  
-  # END
+  has_many :tasks
 end

@@ -5,3 +5,9 @@ div id="#{dom_id task}"
   p
     strong Description:
     =< task.description
+  p
+    strong User:
+    =< task.user&.name
+  p
+    strong Status:
+    =< task.status.name
