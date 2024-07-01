@@ -1,0 +1,6 @@
+= simple_form_for(post_comment, url: url) do |form|
+  div
+    = form.input :body, label: 'New comment'
+
+  div
+    = form.submit 'Add comment'

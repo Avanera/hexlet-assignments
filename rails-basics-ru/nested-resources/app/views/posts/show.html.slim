@@ -3,9 +3,11 @@
 p
   strong.me-2 Body:
   = @post.body
-/ BEGIN
+br
+  = render '/post_comments/post_comments_list'
 
-/ END
+  == render '/post_comments/form', post_comment: @post.post_comments.build, url: post_post_comments_path(@post)
+
 hr
 
 .d-flex

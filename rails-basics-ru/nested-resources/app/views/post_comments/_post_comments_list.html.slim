@@ -1,0 +1,12 @@
+= 'Comments'
+br
+table.table.table-striped.table-hover.mb-5
+  tbody
+    tr = 'There are no comments yet' if @post.post_comments.empty?
+    - @post.post_comments.each_with_index do |comment, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = comment.body
+        td.d-flex
+          .me-4 = link_to 'Edit', edit_post_comment_path(comment)
+          = link_to 'Delete', comment, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'link-danger'

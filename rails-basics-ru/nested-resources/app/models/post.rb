@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  # BEGIN
-  
-  # END
+  has_many :post_comments, dependent: :destroy
 
   validates :title, presence: true
   validates :body, length: { maximum: 500 }
