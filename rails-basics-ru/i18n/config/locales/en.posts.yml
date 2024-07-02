@@ -6,17 +6,18 @@ en:
     edit:
       title: Edit post
     destroy:
-      success: Post was successfully deleted.
+      success: Post was destroyed.
       title: Delete post
       confirm: Are you sure?
     create:
-      success: Post was successfully created
+      success: Post was created.
     new:
-      title: Create a new post
+      title: New Post
     update:
-      success: A post was successfully updated
+      success: Post was updated.
     show:
       body: Body
+      comments: Comments
 
     comments:
       count:

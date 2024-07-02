@@ -14,6 +14,7 @@ en:
       models:
         post:
           attributes:
-            # BEGIN
-
-            # END
+            title:
+              blank: should be filled
+            body:
+              blank: should be filled

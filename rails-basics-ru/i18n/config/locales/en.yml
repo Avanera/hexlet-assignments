@@ -39,6 +39,10 @@ en:
   layouts:
     application:
       hexlet_title: © Hexlet, %{year}
+    shared:
+      nav:
+        hexlet_logo: 80
 
-  posts_path: All posts
-  root_path: Home Page
+  posts_path: Posts
+  root_path: Home
+  home_page: Home page

@@ -10,7 +10,7 @@ ru:
       default_message: "Пожалуйста, исправьте ошибки:"
     placeholders:
       post:
-        title: 'Название поста'
+        title: 'Название'
         body: 'Введите текст поста здесь'
       post_comment:
         body: Текст комментария
