@@ -1,10 +1,27 @@
 en:
   posts:
-    # BEGIN
-    
-    # END
+    page_title: Posts
+    table_title: List of all posts
+
+    edit:
+      title: Edit post
+    destroy:
+      success: Post was successfully deleted.
+      title: Delete post
+      confirm: Are you sure?
+    create:
+      success: Post was successfully created
+    new:
+      title: Create a new post
+    update:
+      success: A post was successfully updated
+    show:
+      body: Body
 
     comments:
+      count:
+        one: "%{count} comment"
+        other: "%{count} comments"
       edit:
         title: Editing comment
 

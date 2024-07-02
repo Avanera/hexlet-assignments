@@ -1,14 +1,12 @@
 en:
   activerecord:
     models:
-      # BEGIN
-      
-      # END
+      post: Post
       post/comment: Comment
     attributes:
-      # BEGIN
-      
-      # END
+      post:
+        title: Title
+        body: Body
       post/comment:
         body: Body
 
@@ -17,5 +15,5 @@ en:
         post:
           attributes:
             # BEGIN
-            
+
             # END

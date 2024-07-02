@@ -8,8 +8,8 @@ en:
     error_notification:
       default_message: "Please check the problems:"
     placeholders:
-      # BEGIN
-      
-      # END
+      post:
+        title: 'Post title'
+        body: 'Type the text of the post here'
       post_comment:
         body: Enter comment body

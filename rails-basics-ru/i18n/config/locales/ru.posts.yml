@@ -1,11 +1,27 @@
----
 ru:
   posts:
-    # BEGIN
-    
-    # END
+    edit:
+      title: Изменить пост
+    destroy:
+      title: Удалить пост
+      confirm: Вы уверены?
+      success: Пост удален.
+    create:
+      success: Пост создан.
+    new:
+      title: Создать новый пост
+    update:
+      success: Пост обновлен.
+    show:
+      body: Содержание
 
+    page_title: Посты
+    table_title: Список всех постов
     comments:
+      count:
+        one: "%{count} комментарий"
+        few: "%{count} комментария"
+        many: "%{count} комментариев"
       edit:
         title: Изменить комментарий
 
