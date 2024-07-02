@@ -21,6 +21,7 @@ en:
 
     comments:
       count:
+        zero: No comments
         one: "%{count} comment"
         other: "%{count} comments"
       edit:

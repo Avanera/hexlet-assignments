@@ -3,11 +3,10 @@
 Rails.application.routes.draw do
   scope '/(:locale)', locale: /en|ru/ do
     root 'home#index'
-    resources :posts
 
-    scope module: :posts do
-      resources :posts do
-        resources :comments
+    resources :posts do
+      scope module: :posts do
+        resources :comments, only: %i[edit create update destroy]
       end
     end
   end

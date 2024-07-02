@@ -20,6 +20,7 @@ ru:
     table_title: Список всех постов
     comments:
       count:
+        zero: Нет комментариев
         one: "%{count} комментарий"
         few: "%{count} комментария"
         many: "%{count} комментариев"
