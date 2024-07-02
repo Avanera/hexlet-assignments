@@ -2,3 +2,6 @@ ru:
   layouts:
     application:
       hexlet_title: © Хекслет, %{year}
+
+  posts_path: Посмотреть посты
+  root_path: Домашняя страница

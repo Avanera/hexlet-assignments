@@ -39,3 +39,6 @@ en:
   layouts:
     application:
       hexlet_title: © Hexlet, %{year}
+
+  posts_path: All posts
+  root_path: Home Page
