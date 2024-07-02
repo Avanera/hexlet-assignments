@@ -1,0 +1,4 @@
+ru:
+  layouts:
+    application:
+      hexlet_title: © Хекслет, %{year}

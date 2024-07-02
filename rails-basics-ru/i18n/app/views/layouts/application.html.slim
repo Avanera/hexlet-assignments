@@ -2,9 +2,7 @@ doctype html
 html.h-100
   head
     title
-      / BEGIN
-      
-      / END
+      = t('.hexlet_title', year: Time.current.year)
     == csrf_meta_tags
     == csp_meta_tag
     meta name="keywords" content="template language"
