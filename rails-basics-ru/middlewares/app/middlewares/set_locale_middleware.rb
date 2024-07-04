@@ -7,12 +7,17 @@ class SetLocaleMiddleware
 
   def call(env)
     req = Rack::Request.new(env)
+    locale = extract_locale_from_accept_language_header(req) || I18n.default_locale
+    I18n.locale = locale.downcase.to_sym
+
+    @app.call env
+  end
+
+  def extract_locale_from_accept_language_header(req)
     locale = req.env['HTTP_ACCEPT_LANGUAGE']&.scan(/^[a-z]{2}/)&.first
 
-    I18n.locale = locale || I18n.default_locale
+    Rails.logger.debug "* Locale detected as '#{locale}'"
 
-    @status, @headers, @response = @app.call(env)
-
-    [@status, @headers, @response]
+    I18n.available_locales.map(&:to_s).include?(locale) ? locale : nil
   end
 end
