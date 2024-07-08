@@ -1,0 +1,8 @@
+<div id="<%= dom_id course %>">
+  <h1> <%= course.title %> </h1>
+  <ol>
+    <% course.lessons.each do |lesson| %>
+      <li> <%= lesson.title %> </li>
+    <% end %>
+  </ol>
+</div>
