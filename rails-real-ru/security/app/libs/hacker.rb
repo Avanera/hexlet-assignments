@@ -51,8 +51,7 @@ class Hacker
       'authenticity_token' => auth_token,
       'user[email]' => email,
       'user[password]' => password,
-      'user[password_confirmation]' => password,
-      'commit' => 'Регистрация'
+      'user[password_confirmation]' => password
     }
 
     URI.encode_www_form(params)
@@ -61,6 +60,7 @@ class Hacker
   def create_http_client
     http = Net::HTTP.new(@uri.host, @uri.port)
     http.use_ssl = @uri.scheme == 'https'
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     http
   end
 end
