@@ -2,9 +2,10 @@
 
 Rails.application.routes.draw do
   resources :vacancies, only: %i[index new create] do
-    # BEGIN
-    
-    # END
+    member do
+      patch 'archive'
+      patch 'publish'
+    end
   end
 
   root 'vacancies#index'

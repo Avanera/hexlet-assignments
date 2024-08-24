@@ -5,9 +5,7 @@ class CreateVacancies < ActiveRecord::Migration[6.1]
     create_table :vacancies do |t|
       t.string :title
       t.string :description
-      # BEGIN
-      
-      # END
+      t.string :aasm_state
 
       t.timestamps
     end

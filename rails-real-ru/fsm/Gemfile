@@ -70,6 +70,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'simple_form'
 gem 'slim-rails'
 
-# BEGIN
-
-# END
+# A library for adding finite state machines to Ruby classes
+gem 'aasm'
