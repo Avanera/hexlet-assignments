@@ -4,9 +4,14 @@
 = link_to 'New Post', new_post_path, class: 'btn btn-primary my-2'
 
 .p-3.bg-light
-  / BEGIN
-  
-  / END
+  = search_form_for @q do |f|
+    = f.label :title_cont
+    = f.search_field :title_cont
+
+    = f.label :aasm_state_cont
+    = f.search_field :aasm_state_cont
+
+    = f.submit
 
 table.table.table-striped.table-hover.mb-5
   thead
