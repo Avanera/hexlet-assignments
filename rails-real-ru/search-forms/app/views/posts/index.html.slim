@@ -5,11 +5,10 @@
 
 .p-3.bg-light
   = search_form_for @q do |f|
-    = f.label :title_cont
-    = f.search_field :title_cont
-
-    = f.label :aasm_state_cont
-    = f.search_field :aasm_state_cont
+    = f.input :title_cont
+    = f.input :aasm_state_eq, as: :select,
+      collection: Post.aasm.states.map(&:name),
+      label: 'State'
 
     = f.submit
 
