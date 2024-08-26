@@ -65,12 +65,14 @@ class ResumesController < ApplicationController
         faculty
         begin_date
         end_date
+        _destroy
       ],
       works_attributes: %i[
         id
         company
         begin_date
         end_date
+        _destroy
       ]
     )
   end

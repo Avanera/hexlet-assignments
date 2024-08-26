@@ -5,7 +5,5 @@ class ResumeEducation < ApplicationRecord
   validates :faculty, presence: true
   validates :begin_date, presence: true
 
-  # BEGIN
-  
-  # END
+  belongs_to :resume
 end
