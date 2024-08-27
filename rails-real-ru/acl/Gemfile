@@ -34,17 +34,16 @@ gem 'bcrypt'
 # gem 'faker'
 gem 'i18n-tasks'
 # gem 'jquery-rails'
+gem 'pundit'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim-rails'
-# BEGIN
-
-# END
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
+  gem 'pry'
 end
 
 group :development do

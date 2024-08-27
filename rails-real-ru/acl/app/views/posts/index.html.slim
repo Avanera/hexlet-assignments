@@ -18,13 +18,15 @@ table.table.table-striped.table-hover.mb-5
         th{ scope = 'row' } = i + 1
         td = post.title
         td.d-flex
-          / posts links
-          = link_to t('show'), post, class: 'me-4'
-          / BEGIN
-          
-          / END
+          .col
+            = link_to t('show'), post, class: 'me-4'
+          .col
+            - if policy(post).update?
+              = link_to t('edit'), edit_post_path(post)
+          .col
+            - if policy(post).destroy?
+              = link_to t('destroy'), post_path(post),
+                data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
 
-/ new post link
-/ BEGIN
-
-/ END
+- if policy(Post).new?
+  = link_to t('new'), new_post_path
