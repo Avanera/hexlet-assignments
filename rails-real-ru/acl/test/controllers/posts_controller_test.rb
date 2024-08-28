@@ -18,9 +18,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest should raise error from new' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      get new_post_url
-    end
+    get new_post_url
+    assert_redirected_to root_path
+    assert_equal 'You are not authorized to perform this action.', flash[:alert]
   end
 
   test 'signed user should get new' do
@@ -31,9 +31,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant create post' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      post posts_url, params: { post: @attrs }
-    end
+    post posts_url, params: { post: @attrs }
 
     blog_post = Post.find_by(@attrs)
     assert_not blog_post
@@ -73,9 +71,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'non author cant get edit' do
     sign_in_as :two
 
-    assert_raises(Pundit::NotAuthorizedError) do
-      get edit_post_url(@post)
-    end
+    get edit_post_url(@post)
+    assert_redirected_to root_path
+    assert_equal 'You are not authorized to perform this action.', flash[:alert]
   end
 
   test 'author can update post' do
@@ -99,9 +97,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'not author cant update post' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      patch post_url(@post), params: { post: @attrs }
-    end
+    patch post_url(@post), params: { post: @attrs }
+    assert_redirected_to root_path
+    assert_equal 'You are not authorized to perform this action.', flash[:alert]
 
     @post.reload
 
@@ -120,9 +118,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'non admin cant destroy post' do
     sign_in_as :one
 
-    assert_raises(Pundit::NotAuthorizedError) do
-      delete post_url(@post)
-    end
+    delete post_url(@post)
+    assert_redirected_to root_path
+    assert_equal 'You are not authorized to perform this action.', flash[:alert]
 
     assert { Post.exists?(@post.id) }
   end
