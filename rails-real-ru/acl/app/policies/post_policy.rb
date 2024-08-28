@@ -2,7 +2,7 @@
 
 class PostPolicy < ApplicationPolicy
   def new?
-    user.present?
+    user
   end
 
   def create?
@@ -10,7 +10,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    user&.admin? || user&.id == record.author.id
+    admin? || author?
   end
 
   def update?
@@ -18,6 +18,16 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
+    admin?
+  end
+
+  private
+
+  def author?
+    record.author == user
+  end
+
+  def admin?
     user&.admin?
   end
 end

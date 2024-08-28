@@ -16,11 +16,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    authorize Post
     @post = current_user.posts.build(post_params)
-    authorize @post
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created'
+      redirect_to @post, notice: t('.success')
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update
     authorize @post
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated'
+      redirect_to @post, notice: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,8 +41,8 @@ class PostsController < ApplicationController
 
   def destroy
     authorize @post
-    @post.destroy
-    redirect_to posts_path, notice: 'Post was successfully destroyed'
+    @post&.destroy!
+    redirect_to posts_path, notice: t('.success')
   end
 
   private

@@ -12,10 +12,12 @@ hr
 .d-flex
   .col
     - if policy(@post).update?
-      = button_to t('edit'), edit_post_path(@post), class: 'btn btn-primary'
+      = link_to t('edit'), edit_post_path(@post),
+        class: 'btn btn-outline-primary me-2'
   .col
     - if policy(@post).destroy?
-      = button_to t('destroy'), post_path(@post), class: 'btn btn-danger',
-        data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
+      = link_to t('destroy'), @post, class: 'btn btn-outline-danger me-2',
+        data: { turbo_method: :delete,
+        turbo_confirm: t('destroy_confirmation') }
 
   = link_to t('back'), :back, class: 'btn btn-outline-primary'
