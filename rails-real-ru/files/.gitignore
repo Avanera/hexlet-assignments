@@ -3,6 +3,7 @@ vendor/
 package-lock.json
 Gemfile.lock
 node_modules/
+.env
 
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.
 #

@@ -21,7 +21,6 @@ gem 'stimulus-rails'
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails'
-gem 'dotenv-rails'
 
 gem 'i18n-tasks'
 gem 'rails-i18n'
@@ -29,9 +28,19 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'sqlite3', '~> 1.4'
 
+# Add simple validations for active_storage gem
+gem 'active_storage_validations'
+# Helps you to get started building applications using AWS infrastructure services
+gem 'aws-sdk-s3'
+# Adds file size and content type validations to ActiveModel
+gem 'file_validators'
+# Provides higher-level image processing helpers that r commonly needed when handling image uploads
+gem 'image_processing'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :production do
@@ -67,6 +76,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-# BEGIN
-
-# END
