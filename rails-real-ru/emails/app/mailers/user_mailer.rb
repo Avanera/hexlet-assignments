@@ -7,8 +7,8 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.account_activation.subject
   #
   def account_activation
-    # BEGIN
-    
-    # END
+    @user = params[:user]
+    @url  = 'http://hexlet.test/user/confirm?confirmation_token=el4tluqCGOiQrD_kRvwsIw'
+    mail(to: @user.email)
   end
 end

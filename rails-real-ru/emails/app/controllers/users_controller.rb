@@ -15,9 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      # BEGIN
-      
-      # END
+      UserMailer.with(user: @user).account_activation.deliver_now
 
       sign_in @user
       redirect_to @user, notice: t('.waiting_confirmation')
