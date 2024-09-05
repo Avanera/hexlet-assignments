@@ -71,7 +71,7 @@ Rails.application.configure do
     port: ENV.fetch('SMTP_PORT') || '25',
     authentication: :cram_md5
   }
-  config.action_mailer.default_url_options = { host: 'http://hexlet.test' }
+  config.action_mailer.default_url_options = { host: ENV.fetch('MAILER_DEFAULT_URL') }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
