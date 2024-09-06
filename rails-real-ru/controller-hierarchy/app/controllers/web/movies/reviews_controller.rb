@@ -7,7 +7,7 @@ module Web::Movies
     end
 
     def new
-      @review = resource_movie.reviews.build
+      @review = resource_movie.reviews.new
     end
 
     def edit
@@ -15,9 +15,12 @@ module Web::Movies
     end
 
     def create
-      @review = resource_movie.reviews.build(review_params)
+      @review = resource_movie.reviews.new(review_params)
       if @review.save
-        redirect_to movie_reviews_path(resource_movie), notice: 'Create success'
+        # Когда вы вызываете movie_reviews_path без передачи resource_movie, Rails может
+        # воспользоваться загруженным объектом @resource_movie из контроллера, так как он уже
+        # знает, что маршрут требует параметр :movie_id и может автоматически его подставить.
+        redirect_to movie_reviews_path, notice: 'Create success'
       else
         render :new, status: :unprocessable_entity
       end
@@ -34,14 +37,14 @@ module Web::Movies
 
     def destroy
       @review = resource_movie.reviews.find(params[:id])
-      @review.destroy
+      @review&.destroy!
       redirect_to movie_reviews_path(resource_movie), notice: 'Review destroyed'
     end
 
     private
 
     def review_params
-      params.require(:review).permit(:body, :movie)
+      params.require(:review).permit(:body)
     end
   end
 end

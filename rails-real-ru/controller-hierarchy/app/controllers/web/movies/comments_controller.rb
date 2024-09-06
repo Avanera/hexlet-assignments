@@ -7,7 +7,7 @@ module Web::Movies
     end
 
     def new
-      @comment = resource_movie.comments.build
+      @comment = resource_movie.comments.new
     end
 
     def edit
@@ -15,7 +15,7 @@ module Web::Movies
     end
 
     def create
-      @comment = resource_movie.comments.build(comment_params)
+      @comment = resource_movie.comments.new(comment_params)
       if @comment.save
         redirect_to movie_comments_path(resource_movie), notice: 'Create success'
       else
@@ -34,14 +34,14 @@ module Web::Movies
 
     def destroy
       @comment = resource_movie.comments.find(params[:id])
-      @comment.destroy
+      @comment&.destroy!
       redirect_to movie_comments_path(resource_movie), notice: 'Comment destroyed'
     end
 
     private
 
     def comment_params
-      params.require(:comment).permit(:body, :movie)
+      params.require(:comment).permit(:body)
     end
   end
 end
