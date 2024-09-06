@@ -4,8 +4,6 @@ class Web::Movies::ApplicationController < Web::ApplicationController
   helper_method :resource_movie
 
   def resource_movie
-    # BEGIN
-    
-    # END
+    @resource_movie ||= Movie.find(params[:movie_id])
   end
 end

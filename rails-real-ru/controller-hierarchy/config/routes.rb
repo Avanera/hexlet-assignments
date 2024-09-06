@@ -5,9 +5,10 @@ Rails.application.routes.draw do
     root 'home#index'
 
     resources :movies do
-      # BEGIN
-      
-      # END
+      scope module: :movies do
+        resources :reviews, except: :show
+        resources :comments, except: :show
+      end
     end
 
     resources :reviews, only: %i[index]
