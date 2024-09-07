@@ -2,6 +2,6 @@
 
 class Api::V2::UsersController < Api::ApplicationController
   # BEGIN
-  
+
   # END
 end
