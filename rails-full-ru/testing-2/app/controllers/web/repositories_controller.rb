@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-# BEGIN
-
-# END
+require 'octokit'
 
 class Web::RepositoriesController < Web::ApplicationController
   def index
@@ -18,9 +16,16 @@ class Web::RepositoriesController < Web::ApplicationController
   end
 
   def create
-    # BEGIN
-    
-    # END
+    byebug
+    params = Web::RepositoryDataBuilderService.new.call(permitted_params[:link])
+    @repository = Repository.new(params)
+
+    if @repository.save
+      redirect_to repositories_path, notice: t('success')
+    else
+      flash[:notice] = t('fail')
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit

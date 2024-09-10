@@ -37,13 +37,10 @@ gem 'bcrypt'
 
 gem 'faker'
 gem 'i18n-tasks'
+gem 'octokit'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim-rails'
-
-# BEGIN
-
-# END
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -72,9 +69,7 @@ group :test do
   gem 'minitest-power_assert'
   gem 'webdrivers'
 
-  # BEGIN
-  
-  # END
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
