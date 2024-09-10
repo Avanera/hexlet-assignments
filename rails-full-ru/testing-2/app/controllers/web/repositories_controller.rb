@@ -16,10 +16,12 @@ class Web::RepositoriesController < Web::ApplicationController
   end
 
   def create
-    params = Web::RepositoryDataBuilderService.new.build(permitted_params[:link])
-    @repository = Repository.new(params)
+    @repository = Repository.new(permitted_params)
 
     if @repository.save
+      params = Web::RepositoryDataBuilderService.new.build(@repository.link)
+      @repository.update!(params)
+
       redirect_to repositories_path, notice: t('success')
     else
       flash[:notice] = t('fail')

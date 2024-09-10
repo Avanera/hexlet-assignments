@@ -8,7 +8,12 @@ class Web::RepositoryDataBuilderServiceTest < ActiveSupport::TestCase
 
     response_body = load_fixture('files/response.json')
 
-    stub_request(:get, @link).to_return(status: 200, body: response_body, headers: {})
+    stub_request(:get, @link)
+      .to_return(
+        status: 200,
+        body: response_body,
+        headers: { 'Content-Type' => 'application/json' }
+      )
 
     @params = {
       link: 'https://api.github.com/repos/octocat/Hello-World',

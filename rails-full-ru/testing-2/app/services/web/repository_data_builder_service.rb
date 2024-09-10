@@ -11,10 +11,7 @@ class Web::RepositoryDataBuilderService
   def retrieve_repository_data(link)
     client = create_client
     octokit_repo = Octokit::Repository.from_url(link)
-    response = client.repository(octokit_repo)
-    return JSON.parse(response) if response.is_a?(String)
-
-    response
+    client.repository(octokit_repo)
   end
 
   def build_params(repository_data)
