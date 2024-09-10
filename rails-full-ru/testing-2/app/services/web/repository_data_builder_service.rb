@@ -1,5 +1,5 @@
 class Web::RepositoryDataBuilderService
-  def call(link)
+  def build(link)
     repository_data = retrieve_repository_data(link)
     build_params(repository_data)
   end

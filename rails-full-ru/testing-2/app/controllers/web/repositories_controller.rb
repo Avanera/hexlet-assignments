@@ -16,8 +16,7 @@ class Web::RepositoriesController < Web::ApplicationController
   end
 
   def create
-    byebug
-    params = Web::RepositoryDataBuilderService.new.call(permitted_params[:link])
+    params = Web::RepositoryDataBuilderService.new.build(permitted_params[:link])
     @repository = Repository.new(params)
 
     if @repository.save

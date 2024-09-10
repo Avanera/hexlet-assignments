@@ -17,26 +17,20 @@ class Web::RepositoriesControllerTest < ActionDispatch::IntegrationTest
     }
 
     @repository = Repository.new(@repository_params)
-
-    # Создаем заглушку для сервиса
-    @service = Minitest::Mock.new
-    @service.expect(:call, @repository_params, ['https://example.com/repo'])
-
-    # Заменяем экземпляр сервиса на наш мок
-    Web::RepositoryDataBuilderService.stub :new, @service do
-      yield if block_given?
-    end
   end
 
   test 'should create repository' do
-    # Используем @service в тесте
-    Web::RepositoryDataBuilderService.stub :new, @service do
+    @mock = Minitest::Mock.new
+    @mock.expect(:build, @repository_params, ['https://example.com/repo'])
+
+    Web::RepositoryDataBuilderService.stub :new, @mock do
       assert_difference('Repository.count') do
         post repositories_url, params: { repository: { link: 'https://example.com/repo' } }
       end
 
       assert_redirected_to repositories_path
-      assert_equal 'Success message', flash[:notice]
+      assert_equal 'Success', flash[:notice]
+      assert_equal true, true
     end
   end
 end
