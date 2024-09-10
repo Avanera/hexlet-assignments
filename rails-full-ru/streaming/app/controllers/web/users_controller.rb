@@ -59,7 +59,7 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def stream_csv
-    response.headers['Content-Type'] = 'text/event-stream'
+    response.headers['Content-Type'] = 'text/csv'
     response.headers['Last-Modified'] = Time.now.httpdate
 
     column_names = User.column_names
