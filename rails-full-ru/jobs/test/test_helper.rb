@@ -3,10 +3,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
-
-# BEGIN
-
-# END
+require 'webmock/minitest'
 
 module ActiveSupport
   class TestCase

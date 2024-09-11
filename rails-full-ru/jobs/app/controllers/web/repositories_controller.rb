@@ -14,21 +14,30 @@ class Web::RepositoriesController < Web::ApplicationController
   end
 
   def create
-    # BEGIN
-    
-    # END
+    repository = Repository.new(permitted_params)
+
+    if repository.save
+      RepositoryLoaderJob.perform_later(repository)
+      redirect_to repositories_path, notice: 'The task will be done async'
+    else
+      flash[:notice] = t('fail')
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
-    # BEGIN
-    
-    # END
+    repository = Repository.find(params[:id])
+
+    RepositoryLoaderJob.perform_later(repository)
+    redirect_to repositories_path, notice: 'The task will be done async'
   end
 
   def update_repos
-    # BEGIN
-    
-    # END
+    repositories = Repository.order(updated_at: :asc)
+    repositories.each do |repository|
+      RepositoryLoaderJob.perform_later(repository)
+    end
+    redirect_to repositories_path, notice: 'The task will be done async'
   end
 
   def destroy
