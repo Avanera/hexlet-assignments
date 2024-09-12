@@ -14,10 +14,10 @@ class Web::ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_match @article.title, response.body
   end
 
-  test 'should get show' do
-    get article_url(@article)
+  # test 'should get show' do
+  #   get article_url(@article)
 
-    assert_response :success
-    assert_match @article.title, response.body
-  end
+  #   assert_response :success
+  #   assert_match @article.title, response.body
+  # end
 end

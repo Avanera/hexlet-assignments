@@ -37,6 +37,7 @@ gem 'jbuilder'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'actionpack-action_caching'
 gem 'bootstrap5-kaminari-views'
 gem 'faker'
 gem 'i18n-tasks'
@@ -44,10 +45,6 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim-rails'
-
-# BEGIN
-
-# END
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

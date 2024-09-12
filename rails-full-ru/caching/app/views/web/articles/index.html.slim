@@ -2,7 +2,5 @@
   = t('.articles')
 
 .row.row-cols-3
-  - @articles.each do |article|
-    / BEGIN
-    
-    / END
+  / - @articles.each do |article|
+  = render partial: 'article', collection: @articles, cached: true
